@@ -92,7 +92,7 @@ export function ModalCreateCategorie({ open, onOpenChange, onSuccess }: ModalCre
               </Label>
               <Select 
                 value={formData.code} 
-                onValueChange={(value) => handleChange('code', value as "VENTE" | "PERFO_EMP")}
+                onValueChange={(value) => handleChange('code', value as "VENTE" | "PERFO_EMP" | "FORMATION")}
                 disabled={loading}
               >
                 <SelectTrigger className="h-9">
@@ -101,6 +101,7 @@ export function ModalCreateCategorie({ open, onOpenChange, onSuccess }: ModalCre
                 <SelectContent>
                   <SelectItem value="VENTE">Vente</SelectItem>
                   <SelectItem value="PERFO_EMP">Performance Employé</SelectItem>
+                  <SelectItem value="FORMATION">Formation</SelectItem>
                 </SelectContent>
               </Select>
             </div>
