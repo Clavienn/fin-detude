@@ -99,9 +99,13 @@ export function ModalCreateWorkflow({ open, onOpenChange, onSuccess }: ModalCrea
     }
   }
 
-  const getCategorieLabel = (code: string) => {
-    return code === 'VENTE' ? 'Vente' : 'Performance Employé'
-  }
+const getCategorieLabel = (code: string) => {
+  if (code === "VENTE") return "Vente";
+  if (code === "PERFORMANCE") return "Performance Employé";
+  if (code === "FORMATION") return "Formation";
+
+  return "Catégorie inconnue";
+};
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

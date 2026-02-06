@@ -9,6 +9,7 @@ import employee from "./routes/employee.routes"
 import vente from "./routes/vente"
 import perfoEmp from "./routes/perfoEmp.routes"
 import logsRoute from "./routes/logs.routes"
+import formation from "./routes/formation"
 
 
 const app: Application = express();
@@ -27,6 +28,7 @@ app.use("/api/sale", vente)
 
 app.use("/api/perfoEmp", perfoEmp)
 app.use("/api/log", logsRoute)
+app.use("/api/formation",formation)
 
 
 export default app;
