@@ -12,6 +12,15 @@ export const endpointCategorie = {
 };
 
 
+export const endpointFormation = {
+  formations: "/formations",
+
+  analyse: "/formations/analyse",
+  predictionParticipation: "/formations/prediction/participation",
+};
+
+
+
 export const endpointWorkflow = {
   workflows: "/workflow",
   allWorkflows: "/workflow/all",

@@ -28,7 +28,7 @@ app.use("/api/sale", vente)
 
 app.use("/api/perfoEmp", perfoEmp)
 app.use("/api/log", logsRoute)
-app.use("/api/formation",formation)
+app.use("/api/formations",formation)
 
 
 export default app;
