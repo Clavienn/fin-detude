@@ -13,6 +13,50 @@ export const createFormation = async (req: Request, res: Response) => {
   }
 };
 
+
+
+export const updateFormation = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const updateData: any = {};
+
+    if (req.body.titre !== undefined)
+      updateData.titre = req.body.titre;
+
+    if (req.body.description !== undefined)
+      updateData.description = req.body.description;
+
+    if (req.body.participantsPrevus !== undefined)
+      updateData.participantsPrevus = req.body.participantsPrevus;
+
+    // 👉 valeurs réelles (après formation)
+    if (req.body.participantsReels !== undefined)
+      updateData.participantsReels = req.body.participantsReels;
+
+    if (req.body.tauxReussite !== undefined)
+      updateData.tauxReussite = req.body.tauxReussite;
+
+    if (req.body.dateDebut !== undefined)
+      updateData.dateDebut = req.body.dateDebut;
+
+    const formation = await Formation.findByIdAndUpdate(
+      id,
+      { $set: updateData },
+      { new: true }
+    );
+
+    if (!formation) {
+      return res.status(404).json({ message: "Formation introuvable" });
+    }
+
+    res.status(200).json(formation);
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+
 /**
  * Liste brute des formations (ETL / Dashboard)
  */
